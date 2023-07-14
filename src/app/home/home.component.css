@@ -1,0 +1,11 @@
+.bg-gray {
+  background-color: gray;
+}
+.container {
+  height: 80px;
+  display: flex;
+  align-items: center;
+}
+.container p {
+  text-align: left;
+}

@@ -1,0 +1,83 @@
+<div *ngIf="employees;else err" class="container  bg-body-tertiary p-3">
+  <button class="btn btn-secondary mb-2" data-bs-toggle="modal" data-bs-target="#addEmployee">Add New Employees</button>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">First</th>
+        <th scope="col">Last</th>
+        <th scope="col">Email</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let eo of employees">
+        <th scope="row">{{eo['id']}}</th>
+        <td>{{eo.first_name}}</td>
+        <td>{{eo.last_name}}</td>
+        <td>{{eo.email}}</td>
+        <td>
+          <button (click)="viewEmployeeDetails(eo.id)" class="btn btn-secondary">
+            View Details
+          </button>          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <!-- Modal -->
+  <div class="modal fade" id="addEmployee" tabindex="-1" aria-labelledby="addEmployeeLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="addEmployeeLabel">Add Employee</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          
+          <form class="row g-3 needs-validation" novalidate>
+            <div class="col-12">
+              <label for="id" class="form-label">Id: </label>
+              <input type="text" class="form-control" id="id"  value=""  [(ngModel)]="id"  name="id" required>
+              <div class="valid-feedback">
+                Looks good!
+              </div>
+            </div>
+            <div class="col-md-6">
+              <label for="FirstName" class="form-label">First Name: </label>
+              <input type="text" class="form-control" id="FirstName"  value="" [(ngModel)]="first_name" name="fname" required>
+              <div class="valid-feedback">
+                Looks good!
+              </div>
+            </div>
+            <div class="col-md-6">
+              <label for="LastName" class="form-label">Last Name:</label>
+              <input type="text" class="form-control" id="validationCustom02" value="" [(ngModel)]="last_name" name="lname" required>
+              <div class="valid-feedback">
+                Looks good!
+              </div>
+            </div>
+            <div class="col-12">
+              <label for="Email" class="form-label">Email:</label>
+              <div class="input-group has-validation">
+                <span class="input-group-text" id="inputGroupPrepend">@</span>
+                <input type="text" class="form-control" id="Email" value="" [(ngModel)]="email" name="email" aria-describedby="inputGroupPrepend" required>
+                <div class="invalid-feedback">
+                  Invalid Email*
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" (click)="AddEmployee()" data-bs-dismiss="modal">Add</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <ng-template #err>
+    <p class="text-danger text-center">Fetching data failed</p>
+  </ng-template>
+</div>

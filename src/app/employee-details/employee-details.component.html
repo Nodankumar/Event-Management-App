@@ -1,0 +1,75 @@
+<div class="container bg-body-tertiary p-3">
+  <table class="table table-bordered">
+    <tbody>
+
+      <p scope="row" class="d-block"> Details of <i>{{employee.first_name}}&nbsp;{{employee.last_name}}</i></p>
+
+      <tr>
+        <th scope="row">Employee Id</th>
+        <td>{{ employee.id }}</td>
+      </tr>
+      <tr class="border-bottom">
+        <th scope="row">Employee First Name</th>
+        <td>{{ employee.first_name }}</td>
+      </tr>
+      <tr class="border-bottom">
+        <th scope="row">Employee Last Name</th>
+        <td>{{ employee.last_name }}</td>
+      </tr>
+      <tr class="border-bottom">
+        <th scope="row">Employee Email</th>
+        <td>{{ employee.email }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <div>
+    <button type="button" class="btn btn-info me-2" routerLink="/employees">Employee List</button>
+    <button class="btn btn-danger me-2" (click)="deleteEmployee(employee.id)">Delete</button>
+    <button class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#updateDetails">Update</button>
+  </div>
+  <!-- Modal -->
+  <div class="modal fade" id="updateDetails" tabindex="-1" aria-labelledby="updateDetailsLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="updateDetailsLabel">Update Details of <i>"{{employee.first_name}}"</i></h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          
+          <form class="row g-3 needs-validation" novalidate>
+            <div class="col-md-3">
+              <label for="FirstName" class="form-label">First Name: </label>
+              <input type="text" class="form-control" id="FirstName"  value="{{employee.first_name}}" (input)="updateFirstname($event)"  name="fname" required>
+              <div class="valid-feedback">
+                Looks good!
+              </div>
+            </div>
+            <div class="col-md-3">
+              <label for="LastName" class="form-label">Last Name:</label>
+              <input type="text" class="form-control" id="validationCustom02" value="{{employee.last_name}}" (input)="updateLastname($event)" required>
+              <div class="valid-feedback">
+                Looks good!
+              </div>
+            </div>
+            <div class="col-md-6">
+              <label for="Email" class="form-label">Email:</label>
+              <div class="input-group has-validation">
+                <span class="input-group-text" id="inputGroupPrepend">@</span>
+                <input type="text" class="form-control" id="Email" value="{{employee.email}}" (input)="updateEmail($event)" aria-describedby="inputGroupPrepend" required>
+                <div class="invalid-feedback">
+                  Invalid Email*
+                </div>
+              </div>
+            </div>
+          </form>
+          <div style="color: red; font-size: xx-small;">Note: All fields need to be modified or else it updates with empty values</div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" (click)="updateEmployee(employee.id)">Update</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

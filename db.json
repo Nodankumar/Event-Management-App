@@ -1,0 +1,34 @@
+{
+  "employees": [
+    {
+      "first_name": "Nodan",
+      "last_name": "Reddy ",
+      "email": "reddynodan@gmail.com",
+      "id": "1"
+    },
+    {
+      "first_name": "Srikanth ",
+      "last_name": "Reddy ",
+      "email": "srikath@gmail.com ",
+      "id": "2"
+    },
+    {
+      "id": "3",
+      "first_name": "Grogu",
+      "last_name": "Mandalorin",
+      "email": "GroguDev@gmail.com"
+    },
+    {
+      "id": "4",
+      "first_name": "Naishu",
+      "last_name": "Aadha",
+      "email": "naishuAadha231@gmail.com"
+    },
+    {
+      "id": "5",
+      "first_name": "Amithumi",
+      "last_name": "Alisi",
+      "email": "AlisiamiThumi@gmail.com"
+    }
+  ]
+}
